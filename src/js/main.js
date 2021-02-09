@@ -16,12 +16,18 @@ function handleSearchResults(event) {
 searchButtonElement.addEventListener('click', handleSearchResults);
 formElement.addEventListener('submit', handleSearchResults);
 
+//array para guardar las series buscadas
+let series = [];
+//array para guardar las series favoritas
+let favoritesSeries = [];
+
 //petición API
 function getSeries(title) {
   fetch(`http://api.tvmaze.com/search/shows?q=${title}`)
     .then(response => response.json())
-    .then(series => {
-      renderSeries(series);
+    .then(data => {
+      series = data;
+      renderSeries();
     });
 }
 //función como argumento para utilizar en la función getSeries como parámetro cuando se ejecuta en handleSearchResults
@@ -30,7 +36,7 @@ function getSeriesTitle() {
 }
 
 //mostrar resultados de búsqueda
-function renderSeries(series) {
+function renderSeries() {
   searchHiddenElement.classList.remove('js-searchHidden');
   let htmlCode = '';
   for (const serie of series) {
@@ -50,7 +56,7 @@ function renderSeries(series) {
 //favoritas
 function handleFavoritesSeries (event) {
   addFavoritesSeries(event);
-  // renderFavorites();
+  renderFavorites();
 }
 
 //serie en la que hago click para añadir a favoritas
@@ -60,19 +66,25 @@ function listenClickSeries() {
     serie.addEventListener('click', handleFavoritesSeries);
   }
 }
-//array para guardar las series favoritas
-let favoritesSeries = [];
 
 //añadir favoritos al array favoritesSeries
 function addFavoritesSeries (event) {
-  const clickSerie = parseInt(event.currentTarget.id);
-  const favSerie = favoritesSeries.findIndex((serieId) => serieId.show.id === clickSerie);
+  const getId = parseInt(event.currentTarget.id);
+  //para coger el id donde se hace click
+  let clickSerie = series.find((select) => getId === select.show.id);
+  //te da el valor de si ya ha sido seleccionado, si no ha sido seleccionado es -1
+  let favSerie = favoritesSeries.findIndex((select) => getId === select.show.id);
+  if (favSerie === -1 ) {
+    favoritesSeries.push(clickSerie);
+  } else {
+    favoritesSeries.splice(favSerie, 1);
+  }
 }
 
 //mostrar resultados de favoritos
-function renderFavorites(favorites) {
+function renderFavorites() {
   let htmlCode = '';
-  for (const favorite of favorites) {
+  for (const favorite of favoritesSeries) {
     htmlCode += `<li class="results__favorites--item" id="${favorite.show.id}">`;
     htmlCode += `<h3 class="results__favorites--title_movie">${favorite.show.name}</h3>`;
     htmlCode += '<i class="far fa-times-circle js-movieRemove"></i>';
