@@ -33,7 +33,7 @@ function renderSeries(series) {
   let htmlCode = '';
   for (const serie of series) {
     htmlCode += `<li class="results__search--item js-search_item" id="${serie.show.id}">`;
-    htmlCode += `<h3 class="results__search--subtitle">${serie.show.name}</h3>`;
+    htmlCode += `<h3 class="results__search--title_movie">${serie.show.name}</h3>`;
     if (serie.show.image === null) {
       htmlCode += `<img class="results__search--image" src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="Imagen no disponible">`;
     } else {
