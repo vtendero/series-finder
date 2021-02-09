@@ -3,6 +3,7 @@
 const inputElement = document.querySelector('.js-input');
 const searchButtonElement = document.querySelector('.js-searchButton');
 const searchResults = document.querySelector('.js-searchResults');
+const searchHiddenElement = document.querySelector('.js-results__search');
 const formElement = document.querySelector('.js-form');
 const favResults = document.querySelector('.js-favResults');
 
@@ -30,6 +31,7 @@ function getSeriesTitle() {
 
 //mostrar resultados de búsqueda
 function renderSeries(series) {
+  searchHiddenElement.classList.remove('js-searchHidden');
   let htmlCode = '';
   for (const serie of series) {
     htmlCode += `<li class="results__search--item js-search_item" id="${serie.show.id}">`;

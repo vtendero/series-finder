@@ -8,13 +8,15 @@
         align-items: flex-start;
     }
 
+.js-searchHidden {
+    display: none;
+}
     &__search {
         width: 60%;
         text-align: center;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        // display: none;
+        align-content: center;
 
         @include desktop {
             order: 1;
@@ -37,31 +39,32 @@
         }
         &--list {
             font-family: $yuseiFont;
-            color: $coralColor;
-            background: $tvColor;
+            color: $yellowColor;
             border-radius: 15px;
             padding: 10px;
+            justify-content: center;
             
             @include desktop {
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: space-evenly;
             }
         }
         &--item {
             list-style-type: none;
-            border: 2px solid #000000;
+            border: 2px solid $blackColor;
             border-radius: 10px;;
             padding: 5px;
             margin: 10px;
+            background: $blackColor;
         }
         &--title_movie {
-            width: 200px;
             height: fit-content;
         }
         &--image {
             width: 180px;
-            padding: 10px;
+            margin: 5px;
+            border: 2px solid $yellowColor;
+            border-radius: 10px;
         }
     }
 
@@ -91,7 +94,7 @@
         width: 130px;
         height: 30px;
         color: $textColor;
-        background: #000000;
+        background: $blackColor;
         border-radius: 50px;
         cursor: pointer;
         border: 2px solid $coralColor;
