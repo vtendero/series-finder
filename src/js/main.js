@@ -42,12 +42,13 @@ function renderSeries(series) {
     htmlCode += '</li>';
   }
   searchResults.innerHTML = htmlCode;
+  listenClickSeries();
 }
 
-//favorites
+//favoritas
 function handleFavoritesSeries (event) {
   addFavoritesSeries(event);
-  renderFavorites(event);
+  // renderFavorites();
 }
 
 //serie en la que hago click para añadir a favoritas
