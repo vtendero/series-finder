@@ -28,8 +28,30 @@ function getSeries(title) {
     .then(data => {
       series = data;
       renderSeries();
+      setInLocalStorage();
     });
 }
+
+//LOCAL STORAGE
+// guardar
+const setInLocalStorage = () => {
+  const stringFavoritesSeries = JSON.stringify(favoritesSeries);
+  localStorage.setItem('favoritesSeries', stringFavoritesSeries);
+};
+
+//leer
+const getFromLocalStorage = () => {
+  const localStorageFavSeries = localStorage.getItem('favoritesSeries');
+  if (localStorageFavSeries === null) {
+    getSeries();
+  } else {
+    const arrayFavSeries = JSON.parse(localStorageFavSeries);
+    favoritesSeries = arrayFavSeries;
+    renderFavorites();
+  }
+};
+
+
 //función como argumento para utilizar en la función getSeries como parámetro cuando se ejecuta en handleSearchResults
 function getSeriesTitle() {
   return inputElement.value;
@@ -79,6 +101,7 @@ function addFavoritesSeries (event) {
   } else {
     favoritesSeries.splice(favSerie, 1);
   }
+  setInLocalStorage();
 }
 
 //mostrar resultados de favoritos
@@ -96,4 +119,7 @@ function renderFavorites() {
     htmlCode += '</li>';
   }
   favResults.innerHTML = htmlCode;
+
 }
+
+getFromLocalStorage();
