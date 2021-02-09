@@ -1,0 +1,56 @@
+.results__favorites {
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $yuseiFont;
+
+  @include desktop {
+    align-items: flex-start;
+    width: 30%;
+  }
+
+  &__title {
+    border-radius: 5px;
+    background: $yellowColor;
+    color: $coralColor;
+    text-align: center;
+    width: 200px;
+    height: 40px;
+    margin-bottom: 20px;
+
+    &__title--heart {
+      color: $coralColor;
+    }
+  }
+
+  &__remove {
+    width: 130px;
+    height: 30px;
+    color: $textColor;
+    background: $coralColor;
+    border-radius: 50px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+
+    &:hover {
+      background: red;
+      transform: scale(1.05);
+    }
+  }
+
+  &__list{
+    color:$textColor;
+  }
+  &--item {
+    color:$textColor;
+  }
+  &--title {
+    color:$textColor;
+  }
+  &--image {
+    color:$textColor;
+  }
+
+}
