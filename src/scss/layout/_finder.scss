@@ -1,0 +1,80 @@
+.page {
+  background-image: url(../images/vintage-videotape.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.searcher {
+  margin: 40px 40px 0;
+  font-family: $yuseiFont;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include desktop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    padding: 10px;
+    text-align: center;
+    color: $coralColor;
+    display: flex;
+    
+    @include desktop {
+      font-size: 30px;
+    }
+    
+    &--gif {
+      width: 60px;
+      
+      @include desktop {
+        width: 100px;
+      }
+    }
+  }
+
+  &__form {
+    text-align: center;
+
+    &--input {
+      padding: 10px;
+      width: 250px;
+      border: none;
+      border-radius: 5px;
+
+      @include desktop {
+        width: 350px;
+      }
+
+      &:focus {
+        outline: 0 none;
+        border: 3px solid $buttonColor;
+      }
+    }
+
+    &--button {
+      margin: 20px;
+      padding: 10px;
+      width: 100px;
+      border-radius: 50px;
+      border: none;
+      background: $buttonColor;
+      color: $textColor;
+      font-family: $yuseiFont;
+      box-shadow: none;
+      outline: none;
+      cursor: pointer;
+      
+      &:hover {
+        background: $tvColor;
+        box-shadow: inset 0 0 0 2.5px $buttonColor;
+        transform: scale(1.05);
+      }
+    }
+  }
+}
