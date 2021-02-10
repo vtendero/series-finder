@@ -3,66 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Adalab Web Starter Kit</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <title>Series finder</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Sriracha&family=Yusei+Magic&display=swap"
+    rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/main.css" />
+    <script src="https://kit.fontawesome.com/f2e0e49a34.js"
+      crossorigin="anonymous"></script>
     <link rel="icon" href="./assets/images/favicon.png" />
   </head>
 
-  <body>
-    <div class="page">
-      <header class="page__header">
-        <img src="./assets/images/logo-adalab.png" alt="Adalab">
-        <h1>Bienvenidos a Adalab</h1>
-      </header>
+  <body class="page">
+    <main class="main">
+      <section class="searcher">
+          <div class="searcher__title">
+              <h1 class="searcher__title--title">console.log(findSerie);</h1>
+              <img class="searcher__title--gif" src="../assets/images/giphy.gif" alt="gif popcorn" title="popcorn gif">
+          </div>
 
-      <main class="page__main">
-        <h2>Este es el starter kit de Adalab</h2>
-        <p>Lo usamos para aprender:</p>
-        <ul class="main__list">
-          <li>Sass</li>
-          <li>HTML partials</li>
-          <li>Gulp</li>
-          <li>y muchas cosas más</li>
-        </ul>
-        <p>Si quieres saber cúales son las rutas correctas para:</p>
-        <ul class="main__list">
-          <li>
-            una <code class="code">&lt;img /&gt;</code> mira el fichero
-            <code class="code">./src/html/partials/header.html</code>.
-          </li>
-          <li>
-            y para un <code class="code">background-image</code> mira el fichero
-            <code class="code">./src/html/scss/layout/_page.scss</code>.
-          </li>
-        </ul>
-        <p>
-          Si quieres saber cómo usar un partial HTML dentro de otro partial, busca en la carperta
-          <code class="code">./src/html/index.html</code> y
-          <code class="code">./src/html/partials/main.html</code>, y verás cómo estamos creando estos
-          enlaces:
-        </p>
-        <ul class="main__list">
-          <li>
-            <a class="link__adalab" href="https://adalab.es">Adalab</a>
+          <form class="searcher__form js-form" method="GET">
+              <input class="searcher__form--input js-input" type="text" placeholder="Ej. Breaking Bad" required>
+              <input class="searcher__form--button js-searchButton" type="button" value="Buscar">
+          </form>
+      </section>
+       <section class="results">
+          <div class="results__search js-results__search js-searchHidden">
+              <h2 class="results__search--title">Resultados de búsqueda:</h2>
 
-          </li>
-          <li>
-            <a class="" href="./more-info.html">Más info del starter kit</a>
+              <ul class="results__search--list js-searchResults"></ul>
+          </div>
 
-          </li>
-        </ul>
-      </main>
+          <div class="results__favorites">
+              <h2 class="results__favorites--title">Mis favoritas
+                  <span class="results__favorites--heart">❤︎</span>
+              </h2>
 
-      <footer class="page__footer">
-        <small>
-          &copy; Todos los derechos reservados
-          <a class="link__adalab" href="https://adalab.es">Adalab</a>
+              <button class="results__favorites--remove js-favRemoveButton">
+                <i class="far fa-trash-alt"></i> Vaciar favoritas
+              </button>
 
-        </small>
-      </footer>
+              <ul class="results__favorites--list js-favResults"></ul>
+          </div>
+       </section>
+    </main>
 
-    </div>
     <script src="./assets/js/main.js"></script>
   </body>
 </html>
