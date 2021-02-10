@@ -6,8 +6,9 @@ const searchResults = document.querySelector('.js-searchResults');
 const searchHiddenElement = document.querySelector('.js-results__search');
 const formElement = document.querySelector('.js-form');
 const favResults = document.querySelector('.js-favResults');
-const favRemove = document.querySelector('.js-favRemoveButton');
 
+let series = [];
+let favoritesSeries = [];
 
 //resultados de búsqueda
 function handleSearchResults(event) {
@@ -17,10 +18,6 @@ function handleSearchResults(event) {
 searchButtonElement.addEventListener('click', handleSearchResults);
 formElement.addEventListener('submit', handleSearchResults);
 
-//array para guardar las series buscadas
-let series = [];
-//array para guardar las series favoritas
-let favoritesSeries = [];
 
 //petición API
 function getSeries(title) {
@@ -33,14 +30,12 @@ function getSeries(title) {
     });
 }
 
-//LOCAL STORAGE
-// guardar
+//local storage
 function setInLocalStorage() {
   const stringFavoritesSeries = JSON.stringify(favoritesSeries);
   localStorage.setItem('favoritesSeries', stringFavoritesSeries);
 }
 
-//leer
 const getFromLocalStorage = () => {
   const localStorageFavSeries = localStorage.getItem('favoritesSeries');
   if (localStorageFavSeries !== null) {
@@ -49,7 +44,6 @@ const getFromLocalStorage = () => {
     renderFavorites();
   }
 };
-
 
 //función como argumento para utilizar en la función getSeries como parámetro cuando se ejecuta en handleSearchResults
 function getSeriesTitle() {
@@ -97,9 +91,7 @@ function listenClickSeries() {
 //añadir favoritos al array favoritesSeries
 function addFavoritesSeries(event) {
   const getId = parseInt(event.currentTarget.id);
-  //para coger el id donde se hace click
   const clickSerie = series.find((serie) => getId === serie.show.id);
-  //te da el valor de si ya ha sido seleccionado, si no ha sido seleccionado es -1
   const favSerie = favoritesSeries.findIndex((serie) => getId === serie.show.id);
   if (favSerie === -1 ) {
     favoritesSeries.push(clickSerie);
@@ -110,6 +102,7 @@ function addFavoritesSeries(event) {
   setInLocalStorage();
 }
 
+//marcar cuando es seleccionada en resultados de búsqueda
 function toggleHighlight(element) {
   element.classList.toggle('js-highlighted');
 }
@@ -133,16 +126,8 @@ function renderFavorites() {
     htmlCode += '</li>';
   }
   favResults.innerHTML = htmlCode;
-
 }
 
 //borrar favoritos
-function handleRemoveFavorites () {
-  favoritesSeries = [];
-  localStorage.removeItem('favoritesSeries');
-  renderSeries();
-  listenClickSeries();
-}
-favRemove.addEventListener('click', handleRemoveFavorites);
 
 getFromLocalStorage();
