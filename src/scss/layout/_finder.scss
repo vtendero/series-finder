@@ -20,21 +20,26 @@
 
   &__title {
     padding: 10px;
-    text-align: center;
     color: $coralColor;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
     
     @include tablet {
       font-size: 30px;
     }
     
     &--title {
-      font-size: 20px;
+      font-size: 26px;
       
       @include tablet {
         font-size: 60px;
       }
+    }
+
+    &--title {
+       height: fit-content;
     }
     &--gif {
       width: 60px;

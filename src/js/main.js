@@ -123,7 +123,7 @@ function renderFavorites() {
   for (const favorite of favoritesSeries) {
     htmlCode += `<li class="results__favorites--item" id="${favorite.show.id}">`;
     htmlCode += `<h3 class="results__favorites--title_movie">${favorite.show.name}</h3>`;
-    htmlCode += '<i class="far fa-times-circle js-movieRemove"></i>';
+    htmlCode += '<i class="far fa-times-circle results__favorites--icon js-movieRemove"></i>';
     if (favorite.show.image === null) {
       htmlCode += `<img class="results__favorites--image" src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="Imagen no disponible">`;
     } else {

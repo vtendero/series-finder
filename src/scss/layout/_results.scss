@@ -20,11 +20,10 @@
         align-items: center;
 
         @include tablet {
-            order: 1;
             padding: 0 30px 30px 30px;
             align-items: flex-start;
-            width: 90%;
-            margin: 20px;
+            width: 80%;
+            margin: 50px 20px 20px 20px;
         }
 
         &--title {
@@ -60,7 +59,6 @@
             background: $blackColor;
             cursor: pointer;
             width: 200px;
-            // height: 300px;
         }
         &--title_movie {
             width: 180px;
@@ -71,7 +69,6 @@
             margin: 5px;
             border: 2px solid $yellowColor;
             border-radius: 10px;
-            overflow: auto;
         }
     }
 
@@ -81,10 +78,11 @@
         align-items: center;
 
         @include tablet {
-            width: 400px;
             display: flex;
             align-items: center;
             font-size: 22px;
+            margin: 20px;
+            width: 400px;
         }
          
         &--title {
@@ -104,40 +102,62 @@
         color: $textColor;
         background: $blackColor;
         border-radius: 50px;
+        border: none;
         cursor: pointer;
-        border: 2px solid $coralColor;
         outline: none;
         margin-bottom: 20px;
         font-family: $inconsolataFont;
         font-size: 18px;
             &:hover {
-                background: $coralColor;
+                border: 2px solid $coralColor;
                 transform: scale(1.05);
             }
         }
         &--list {
         font-family: $inconsolataFont;
-        background: $coralColor;
         border-radius: 15px;
+        padding: 10px;
 
             @include tablet {
                 display: flex;
                 flex-wrap: wrap;
-                margin-top: 30px;
-                justify-content: space-evenly;
+                margin-top: 20px;
+                justify-content: center;
             }
         }
         &--item {
-            color: $textColor;
             list-style-type: none;
+            width: 150px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border-radius: 10px;
+            border: 3px solid $coralColor;
+            margin: 5px;
+            background: $blackColor;
+            width: 180px;
+            align-items: center;
+            padding: 5px;
         }
         &--title_movie {
+            font-size: 18px;
+            padding: 8px;
+            color: $coralColor;
+        }
+        &--icon {
+            position: absolute;
+            top: -7px;
+            right: -5px;
+            font-size: 30px;
+            cursor: pointer;
             color: $textColor;
         }
+
         &--image {
-            color: $textColor;
             width: 150px;
-            padding: 10px;
+            margin: 5px;
+            border-radius: 10px;
+            border: 2px solid $coralColor;
         }
     }
 }
