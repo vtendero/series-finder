@@ -20,6 +20,7 @@
         align-items: center;
 
         @include tablet {
+            order: 1;
             padding: 0 30px 30px 30px;
             align-items: flex-start;
             width: 80%;
@@ -82,7 +83,7 @@
             align-items: center;
             font-size: 22px;
             margin: 20px;
-            width: 400px;
+            width: 500px;
         }
          
         &--title {
