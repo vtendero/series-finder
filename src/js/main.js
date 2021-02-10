@@ -34,17 +34,15 @@ function getSeries(title) {
 
 //LOCAL STORAGE
 // guardar
-const setInLocalStorage = () => {
+function setInLocalStorage() {
   const stringFavoritesSeries = JSON.stringify(favoritesSeries);
   localStorage.setItem('favoritesSeries', stringFavoritesSeries);
-};
+}
 
 //leer
 const getFromLocalStorage = () => {
   const localStorageFavSeries = localStorage.getItem('favoritesSeries');
-  if (localStorageFavSeries === null) {
-    getSeries();
-  } else {
+  if (localStorageFavSeries !== null) {
     const arrayFavSeries = JSON.parse(localStorageFavSeries);
     favoritesSeries = arrayFavSeries;
     renderFavorites();
@@ -61,8 +59,14 @@ function getSeriesTitle() {
 function renderSeries() {
   searchHiddenElement.classList.remove('js-searchHidden');
   let htmlCode = '';
+  let highlightedClass = '';
   for (const serie of series) {
-    htmlCode += `<li class="results__search--item js-search_item" id="${serie.show.id}">`;
+    if (isFavorite(serie.show.id)) {
+      highlightedClass = 'js-highlighted';
+    } else {
+      highlightedClass = '';
+    }
+    htmlCode += `<li class="results__search--item js-search_item ${highlightedClass}" id="${serie.show.id}">`;
     htmlCode += `<h3 class="results__search--title_movie">${serie.show.name}</h3>`;
     if (serie.show.image === null) {
       htmlCode += `<img class="results__search--image" src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="Imagen no disponible">`;
@@ -76,7 +80,7 @@ function renderSeries() {
 }
 
 //favoritas
-function handleFavoritesSeries (event) {
+function handleFavoritesSeries(event) {
   addFavoritesSeries(event);
   renderFavorites();
 }
@@ -90,18 +94,27 @@ function listenClickSeries() {
 }
 
 //añadir favoritos al array favoritesSeries
-function addFavoritesSeries (event) {
+function addFavoritesSeries(event) {
   const getId = parseInt(event.currentTarget.id);
   //para coger el id donde se hace click
-  let clickSerie = series.find((select) => getId === select.show.id);
+  const clickSerie = series.find((serie) => getId === serie.show.id);
   //te da el valor de si ya ha sido seleccionado, si no ha sido seleccionado es -1
-  let favSerie = favoritesSeries.findIndex((select) => getId === select.show.id);
+  const favSerie = favoritesSeries.findIndex((serie) => getId === serie.show.id);
   if (favSerie === -1 ) {
     favoritesSeries.push(clickSerie);
   } else {
     favoritesSeries.splice(favSerie, 1);
   }
+  toggleHighlight(event.currentTarget);
   setInLocalStorage();
+}
+
+function toggleHighlight(element) {
+  element.classList.toggle('js-highlighted');
+}
+
+function isFavorite(id) {
+  return favoritesSeries.findIndex((serie) => id === serie.show.id) !== -1;
 }
 
 //mostrar resultados de favoritos
