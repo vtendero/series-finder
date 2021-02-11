@@ -7,6 +7,7 @@ const searchHiddenElement = document.querySelector('.js-results__search');
 const formElement = document.querySelector('.js-form');
 const favResults = document.querySelector('.js-favResults');
 const favRemove = document.querySelector('.js-favRemoveButton');
+const logButtonElement = document.querySelector('.js-searchLog');
 
 let series = [];
 let favoritesSeries = [];
@@ -64,6 +65,7 @@ function renderSeries() {
     }
     htmlCode += `<li class="results__search--item js-search_item ${highlightedClass}" id="${serie.show.id}">`;
     htmlCode += `<h3 class="results__search--title_movie">${serie.show.name}</h3>`;
+    htmlCode += `<p class="results__search--time">${serie.show.schedule.time}</p>`;
     if (serie.show.image === null) {
       htmlCode += `<img class="results__search--image" src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="Imagen no disponible">`;
     } else {
@@ -136,5 +138,14 @@ function handleRemoveFavorites(){
   renderFavorites();
 }
 favRemove.addEventListener('click', handleRemoveFavorites);
+
+
+//log
+function handleLog() {
+  for (const serie of series) {
+    console.log(serie.show.name);
+  }
+}
+logButtonElement.addEventListener('click', handleLog);
 
 getFromLocalStorage();
