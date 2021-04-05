@@ -22,7 +22,7 @@ formElement.addEventListener('submit', handleSearchResults);
 
 //petición API
 function getSeries(title) {
-  fetch(`http://api.tvmaze.com/search/shows?q=${title}`)
+  fetch(`https://api.tvmaze.com/search/shows?q=${title}`)
     .then(response => response.json())
     .then(data => {
       series = data;
