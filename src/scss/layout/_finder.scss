@@ -2,11 +2,10 @@
   background-image: url(../images/vintage-videotape.jpg);
   background-size: cover;
   background-position: center;
-  height: 100vh;
 }
 
-.searcher {
-  margin: 40px 40px 0;
+.finder {
+  margin:0 40px 0;
   font-family: $inconsolataFont;
   display: flex;
   flex-direction: column;

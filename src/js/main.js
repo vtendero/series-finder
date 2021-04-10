@@ -27,7 +27,6 @@ function getSeries(title) {
     .then(data => {
       series = data;
       renderSeries();
-      setInLocalStorage();
     });
 }
 
@@ -79,6 +78,7 @@ function renderSeries() {
 function handleFavoritesSeries(event) {
   addFavoritesSeries(event);
   renderFavorites();
+  // setInLocalStorage();
 }
 
 //serie en la que hago click para añadir a favoritas
