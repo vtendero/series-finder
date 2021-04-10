@@ -61,11 +61,17 @@
             background: $blackColor;
             cursor: pointer;
             width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
         }
+
         &--title_movie {
             width: 180px;
             height: fit-content;
+            height: 50px;
         }
+
         &--image {
             width: 180px;
             margin: 5px;
@@ -112,7 +118,6 @@
         font-size: 18px;
             &:hover {
                 border: 2px solid $coralColor;
-                transform: scale(1.05);
             }
         }
         &--list {
