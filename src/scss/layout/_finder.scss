@@ -1,7 +1,11 @@
-.page {
+html {
   background-image: url(../images/vintage-videotape.jpg);
   background-size: cover;
   background-position: center;
+}
+
+.main {
+  min-height: calc(100vh - 70px);
 }
 
 .finder {

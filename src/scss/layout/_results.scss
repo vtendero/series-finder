@@ -25,7 +25,7 @@
             padding: 0 30px 30px 30px;
             align-items: flex-start;
             width: 80%;
-            margin: 50px 20px 20px 20px;
+            margin-top: 50px;
         }
 
         &--title {
@@ -84,13 +84,14 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        background: $blackColor;
 
         @include tablet {
             display: flex;
             align-items: center;
             font-size: 22px;
-            margin: 20px;
-            width: 500px;
+            margin: 50px 20px 20px 0px;
+            width: 25%;
         }
          
         &--title {
@@ -99,13 +100,14 @@
             text-align: center;
             margin: 20px 0 20px;
             color: $textColor;
+            font-size: 28px;
         }
             &--heart {
                 color: $coralColor;
             }
 
         &--remove {
-        width: 190px;
+        width: 160px;
         height: 40px;
         color: $textColor;
         background: $blackColor;
@@ -115,9 +117,10 @@
         outline: none;
         margin-bottom: 20px;
         font-family: $inconsolataFont;
-        font-size: 18px;
+        font-size: 15px;
+        border: 2px solid $coralColor;
             &:hover {
-                border: 2px solid $coralColor;
+                background: $coralColor;
             }
         }
         &--list {

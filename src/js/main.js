@@ -78,7 +78,7 @@ function renderSeries() {
 function handleFavoritesSeries(event) {
   addFavoritesSeries(event);
   renderFavorites();
-  // setInLocalStorage();
+  setInLocalStorage();
 }
 
 //serie en la que hago click para añadir a favoritas
@@ -100,7 +100,6 @@ function addFavoritesSeries(event) {
     favoritesSeries.splice(favSerie, 1);
   }
   toggleHighlight(event.currentTarget);
-  setInLocalStorage();
 }
 
 //marcar cuando es seleccionada en resultados de búsqueda
@@ -115,11 +114,12 @@ function isFavorite(id) {
 //mostrar resultados de favoritos
 function renderFavorites() {
   let htmlCode = '';
+  const defaultImage = 'https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
   for (const favorite of favoritesSeries) {
     htmlCode += `<li class="results__favorites--item" id="${favorite.show.id}">`;
     htmlCode += `<h3 class="results__favorites--title_movie">${favorite.show.name}</h3>`;
     if (favorite.show.image === null) {
-      htmlCode += `<img class="results__favorites--image" src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="Imagen no disponible">`;
+      htmlCode += `<img class="results__favorites--image" src=${defaultImage}alt="Imagen no disponible">`;
     } else {
       htmlCode += `<img class="results__favorites--image" src="${favorite.show.image.medium}" alt="Imagen serie ${favorite.show.name}">`;
     }
