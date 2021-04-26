@@ -16,10 +16,7 @@
   <body class="page">
     <main class="main">
       <section class="finder">
-          <div class="finder__title">
-              <h1 class="finder__title--title">console.log(findSerie);</h1>
-              <img class="finder__title--gif" src="./assets/images/giphy.gif" alt="gif popcorn" title="popcorn gif">
-          </div>
+          <h1 class="finder__title">console.log(findSerie);</h1>
 
           <form class="finder__form js-form" method="GET">
               <input class="finder__form--input js-input" type="text" placeholder="Ej. Breaking Bad" required>
@@ -28,8 +25,10 @@
       </section>
        <section class="results">
           <div class="results__search js-results__search js-searchHidden">
-              <h2 class="results__search--title">Resultados de búsqueda:</h2>
-
+              <div class="results__search--titleContainer">
+                  <img class="results__search--gif" src="./assets/images/giphy.gif" alt="gif popcorn" title="popcorn gif">
+                  <h2 class="results__search--title">Resultados de búsqueda:</h2>
+              </div>
               <ul class="results__search--list js-searchResults"></ul>
           </div>
 
