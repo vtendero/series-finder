@@ -8,12 +8,14 @@
     padding: 10px;
     height: 130px;
     width: 100%;
+    margin-top: 40px;
 
     @include tablet {
         flex-direction: row;
         height: 70px;
         margin-bottom: 15px;
         justify-content:flex-end;
+        margin-top: 0;
     }
     
     &__info {

@@ -2,17 +2,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     @include tablet {
         flex-direction: row;
         align-items: flex-start;
     }
 
-.js-searchHidden {
-    display: none;
-}
+    .js-searchHidden {
+        display: none;
+    }
+
     &__search {
-        width: 60%;
         text-align: center;
         display: flex;
         flex-direction: column;
@@ -21,6 +21,7 @@
         order: 1;
 
         @include tablet {
+            width: 60%;
             order: 1;
             padding: 0 30px 30px 30px;
             align-items: flex-start;
@@ -28,34 +29,48 @@
             margin-top: 50px;
         }
 
+        &--titleContainer {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        &--gif {
+            width: 40px;
+
+            @include tablet {
+                width: 60px;
+            }
+        }
+
         &--title {
             font-family: $inconsolataFont;
             color: $textColor;
             font-size: 20px;
-            margin-bottom: 20px;
 
             @include tablet {
-             font-size: 24px;
-             text-align: left;
+                font-size: 24px;
             }
         }
+
         &--list {
             font-family: $inconsolataFont;
             color: $yellowColor;
             border-radius: 15px;
             padding: 10px;
             justify-content: center;
-            
+
             @include tablet {
                 display: flex;
                 flex-wrap: wrap;
                 font-size: 20px;
             }
         }
+
         &--item {
             list-style-type: none;
             border: none;
-            border-radius: 10px;;
+            border-radius: 10px;
+            ;
             padding: 5px;
             margin: 10px;
             background: $blackColor;
@@ -63,13 +78,15 @@
             width: 200px;
             display: flex;
             flex-direction: column;
-            align-items: center; 
+            align-items: center;
         }
 
         &--title_movie {
             width: 180px;
-            height: fit-content;
             height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         &--image {
@@ -84,49 +101,58 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background: $blackColor;
+        padding: 2.5px;
 
         @include tablet {
             display: flex;
             align-items: center;
             font-size: 22px;
             margin: 50px 20px 20px 0px;
-            width: 25%;
+            width: 30%;
+            // background: $blackColor;
         }
-         
+
         &--title {
             border-radius: 5px;
             font-family: $inconsolataFont;
             text-align: center;
             margin: 20px 0 20px;
             color: $textColor;
-            font-size: 28px;
+            font-size: 24px;
         }
-            &--heart {
-                color: $coralColor;
-            }
+
+        &--heart {
+            color: $coralColor;
+        }
 
         &--remove {
-        width: 160px;
-        height: 40px;
-        color: $textColor;
-        background: $blackColor;
-        border-radius: 50px;
-        border: none;
-        cursor: pointer;
-        outline: none;
-        margin-bottom: 20px;
-        font-family: $inconsolataFont;
-        font-size: 15px;
-        border: 2px solid $coralColor;
+            width: 135px;
+            height: 40px;
+            color: $textColor;
+            background: $blackColor;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            margin-bottom: 20px;
+            font-family: $inconsolataFont;
+            font-size: 12px;
+            border: 2px solid $coralColor;
+
             &:hover {
                 background: $coralColor;
             }
+
+            @include tablet {
+                font-size: 15px;
+                width: 160px;
+            }
         }
+
         &--list {
-        font-family: $inconsolataFont;
-        border-radius: 15px;
-        padding: 10px;
+            font-family: $inconsolataFont;
+            border-radius: 15px;
+            padding: 10px;
 
             @include tablet {
                 display: flex;
@@ -135,6 +161,7 @@
                 justify-content: center;
             }
         }
+
         &--item {
             list-style-type: none;
             width: 150px;
@@ -149,11 +176,13 @@
             align-items: center;
             padding: 5px;
         }
+
         &--title_movie {
             font-size: 18px;
             padding: 8px;
             color: $coralColor;
         }
+
         &--image {
             width: 150px;
             margin: 5px;

@@ -1,3 +1,9 @@
+@mixin mobile {
+    @media all and (min-width: 375px) {
+        @content;
+    }
+}
+
 @mixin tablet {
     @media all and (min-width: 768px) {
         @content;

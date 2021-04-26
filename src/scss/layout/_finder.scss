@@ -5,51 +5,29 @@ html {
 }
 
 .main {
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 85px);
 }
 
 .finder {
-  margin:0 40px 0;
+  padding: 40px 0 20px;
   font-family: $inconsolataFont;
-  display: flex;
-  flex-direction: column;
   align-items: center;
-
+  background: $blackColor;
+  
   @include tablet {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    padding: 40px 30px 20px;
   }
 
   &__title {
-    padding: 10px;
     color: $coralColor;
     display: flex;
-    align-items: center;
-    flex-wrap: wrap;
     justify-content: center;
+    font-size: 26px;
     
     @include tablet {
       font-size: 30px;
-    }
-    
-    &--title {
-      font-size: 26px;
-      
-      @include tablet {
-        font-size: 60px;
-      }
-    }
-
-    &--title {
-       height: fit-content;
-    }
-    &--gif {
-      width: 60px;
-      
-      @include tablet {
-        width: 100px;
-      }
     }
   }
 
@@ -58,14 +36,15 @@ html {
 
     &--input {
       padding: 10px;
-      width: 250px;
-      height: 50px;
+      width: 200px;
+      height: 40px;
       border: none;
       border-radius: 5px;
       font-size: 16px;
 
       @include tablet {
-        width: 350px;
+        width: 250px;
+        height: 50px;
       }
 
       &:focus {
@@ -75,22 +54,27 @@ html {
     }
 
     &--button {
-      margin: 20px;
+      margin-top: 20px;
       padding: 10px;
-      width: 100px;
-      border-radius: 50px;
+      width: 70px;
+      border-radius: 5px;
       border: none;
       background: $buttonColor;
       color: $textColor;
       font-family: $inconsolataFont;
-      font-size: 18px;
+      font-size: 16px;
       box-shadow: none;
       outline: none;
       cursor: pointer;
       
       &:hover {
-        background: $tvColor;
-        box-shadow: inset 0 0 0 2.5px $buttonColor;
+        background: $buttonColor;
+        filter: contrast(120%)
+      }
+
+      @include tablet {
+        width: 100px;
+        margin: 0;
       }
     }
   }
