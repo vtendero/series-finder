@@ -55,6 +55,7 @@ function renderSeries() {
   searchHiddenElement.classList.remove('js-searchHidden');
   let htmlCode = '';
   let highlightedClass = '';
+  const defaultImage = 'https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
   for (const serie of series) {
     if (isFavorite(serie.show.id)) {
       highlightedClass = 'js-highlighted';
@@ -64,11 +65,11 @@ function renderSeries() {
     htmlCode += `<li class="results__search--item ">`;
     htmlCode += `<h3 class="results__search--title_movie">${serie.show.name}</h3>`;
     if (serie.show.image === null) {
-      htmlCode += `<img class="results__search--image" src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="Imagen no disponible">`;
+      htmlCode += `<img class="results__search--image" src=${defaultImage} alt="Imagen no disponible">`;
     } else {
       htmlCode += `<img class="results__search--image" src="${serie.show.image.medium}" alt="Imagen serie ${serie.show.name}">`;
     }
-    htmlCode += `<div class="results__search--fav js-selected_fav" title="Añadir a favoritos"  ${highlightedClass}" id="${serie.show.id}">❤︎</div>`;
+    htmlCode += `<div class="results__search--fav js-selected_fav ${highlightedClass}" id="${serie.show.id}" title="Añadir a favoritos">❤︎</div>`;
     htmlCode += '</li>';
   }
   searchResults.innerHTML = htmlCode;
@@ -100,12 +101,8 @@ function addFavoritesSeries(event) {
   } else {
     favoritesSeries.splice(favSerie, 1);
   }
-  toggleHighlight(event.currentTarget);
-}
-
-//marcar cuando es seleccionada en resultados de búsqueda
-function toggleHighlight(element) {
-  element.classList.toggle('js-highlighted');
+  renderSeries();
+  renderFavorites();
 }
 
 function isFavorite(id) {
@@ -117,7 +114,8 @@ function renderFavorites() {
   let htmlCode = '';
   const defaultImage = 'https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
   for (const favorite of favoritesSeries) {
-    htmlCode += `<li class="results__favorites--item" id="${favorite.show.id}">`;
+    htmlCode += `<li class="results__favorites--item">`;
+    htmlCode += `<i class="far fa-times-circle results__favorites--delete js-selected_fav" id="${favorite.show.id}"></i>`;
     htmlCode += `<h3 class="results__favorites--title_movie">${favorite.show.name}</h3>`;
     if (favorite.show.image === null) {
       htmlCode += `<img class="results__favorites--image" src=${defaultImage}alt="Imagen no disponible">`;
@@ -127,6 +125,7 @@ function renderFavorites() {
     htmlCode += '</li>';
   }
   favResults.innerHTML = htmlCode;
+  listenClickSeries();
 }
 
 //borrar favoritos
