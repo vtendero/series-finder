@@ -70,11 +70,9 @@
             list-style-type: none;
             border: none;
             border-radius: 10px;
-            ;
             padding: 5px;
             margin: 10px;
             background: $blackColor;
-            cursor: pointer;
             width: 200px;
             display: flex;
             flex-direction: column;
@@ -82,10 +80,10 @@
         }
 
         &--title_movie {
-            width: 180px;
-            height: 50px;
+            padding: 5px;
+            height: 60px;
+            font-size: 20px;
             display: flex;
-            justify-content: center;
             align-items: center;
         }
 
@@ -94,6 +92,16 @@
             margin: 5px;
             border: 2px solid $yellowColor;
             border-radius: 10px;
+        }
+
+        &--fav {
+            font-size: 30px;
+            cursor: pointer;
+            padding: 5px;
+    
+            &:hover {
+                color: $coralColor;
+            }
         }
     }
 
@@ -109,7 +117,6 @@
             font-size: 22px;
             margin: 50px 20px 20px 0px;
             width: 30%;
-            // background: $blackColor;
         }
 
         &--title {
@@ -179,8 +186,12 @@
 
         &--title_movie {
             font-size: 18px;
-            padding: 8px;
+            padding: 5px;
             color: $coralColor;
+            text-align: center;
+            height: 60px;
+            display: flex;
+            align-items: center;
         }
 
         &--image {
@@ -193,6 +204,5 @@
 }
 
 .js-highlighted {
-    background: $coralColor;
-    color: $textColor;
+    color: $coralColor;
 }

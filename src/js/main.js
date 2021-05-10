@@ -61,13 +61,14 @@ function renderSeries() {
     } else {
       highlightedClass = '';
     }
-    htmlCode += `<li class="results__search--item js-search_item ${highlightedClass}" id="${serie.show.id}">`;
+    htmlCode += `<li class="results__search--item ">`;
     htmlCode += `<h3 class="results__search--title_movie">${serie.show.name}</h3>`;
     if (serie.show.image === null) {
       htmlCode += `<img class="results__search--image" src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV" alt="Imagen no disponible">`;
     } else {
       htmlCode += `<img class="results__search--image" src="${serie.show.image.medium}" alt="Imagen serie ${serie.show.name}">`;
     }
+    htmlCode += `<div class="results__search--fav js-selected_fav" title="Añadir a favoritos"  ${highlightedClass}" id="${serie.show.id}">❤︎</div>`;
     htmlCode += '</li>';
   }
   searchResults.innerHTML = htmlCode;
@@ -83,7 +84,7 @@ function handleFavoritesSeries(event) {
 
 //serie en la que hago click para añadir a favoritas
 function listenClickSeries() {
-  const series = document.querySelectorAll('.js-search_item');
+  const series = document.querySelectorAll('.js-selected_fav');
   for (const serie of series) {
     serie.addEventListener('click', handleFavoritesSeries);
   }
