@@ -2,8 +2,8 @@
 
 const inputElement = document.querySelector('.js-input');
 const searchButtonElement = document.querySelector('.js-searchButton');
+const searchSeries = document.querySelector('.js-searchList');
 const searchResults = document.querySelector('.js-searchResults');
-const searchHiddenElement = document.querySelector('.js-results__search');
 const formElement = document.querySelector('.js-form');
 const favResults = document.querySelector('.js-favResults');
 const favRemove = document.querySelector('.js-favRemoveButton');
@@ -28,6 +28,7 @@ function getSeries(title) {
     .then(data => {
       series = data;
       renderSeries();
+      renderSearchResults();
     });
 }
 
@@ -52,8 +53,19 @@ function getSeriesTitle() {
 }
 
 //mostrar resultados de búsqueda
+function renderSearchResults() {
+  let htmlCode = '';
+  htmlCode += '<img class="results__search--gif" src="./assets/images/giphy.gif" alt="gif popcorn" title="popcorn gif">';
+  if (series.length === 0) {
+    htmlCode +='<h2 class="results__search--title">La búsqueda no coincide con ningún resultado.</h2>';
+  } else {
+    htmlCode += '<h2 class="results__search--title">Resultados de búsqueda:</h2>';
+  }
+  searchResults.innerHTML = htmlCode;
+}
+
 function renderSeries() {
-  searchHiddenElement.classList.remove('js-searchHidden');
+  searchResults.classList.remove('js-searchHidden');
   let htmlCode = '';
   let highlightedClass = '';
   const defaultImage = 'https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
@@ -73,7 +85,7 @@ function renderSeries() {
     htmlCode += `<div class="results__search--fav js-selected_fav ${highlightedClass}" id="${serie.show.id}" title="Añadir a favoritos">❤︎</div>`;
     htmlCode += '</li>';
   }
-  searchResults.innerHTML = htmlCode;
+  searchSeries.innerHTML = htmlCode;
   listenClickSeries();
 }
 
