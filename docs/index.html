@@ -20,16 +20,14 @@
 
           <form class="finder__form js-form" method="GET">
               <input class="finder__form--input js-input" type="text" placeholder="Ej. Breaking Bad" required>
-              <input class="finder__form--button js-searchButton" type="button" value="Buscar">
+              <i class="fas fa-redo finder__form--reload js-reload" title="Recargar"></i>
+              <input class="finder__form--search js-searchButton" type="button" value="Buscar">
           </form>
       </section>
        <section class="results">
-          <div class="results__search js-results__search js-searchHidden">
-              <div class="results__search--titleContainer">
-                  <img class="results__search--gif" src="./assets/images/giphy.gif" alt="gif popcorn" title="popcorn gif">
-                  <h2 class="results__search--title">Resultados de búsqueda:</h2>
-              </div>
-              <ul class="results__search--list js-searchResults"></ul>
+          <div class="results__search ">
+              <div class="results__search--titleContainer js-searchResults"></div>
+              <ul class="results__search--list js-searchList"></ul>
           </div>
 
           <div class="results__favorites">
