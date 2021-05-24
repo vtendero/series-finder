@@ -21,7 +21,6 @@
         order: 1;
 
         @include tablet {
-            width: 60%;
             order: 1;
             padding: 0 30px 30px 30px;
             align-items: flex-start;
@@ -44,7 +43,7 @@
 
         &--title {
             font-family: $inconsolataFont;
-            color: $textColor;
+            color: $blackColor;
             font-size: 20px;
 
             @include tablet {
@@ -110,14 +109,16 @@
         flex-direction: column;
         align-items: center;
         padding: 2.5px;
-
+        background: $coralColor;
+        width: 100%;
+        
         @include tablet {
             display: flex;
             align-items: center;
             font-size: 22px;
             margin: 50px 20px 20px 0px;
             width: 30%;
-            border-right: 3px solid $coralColor;
+            border-right: 2px solid $coralColor;
         }
 
         &--title {
@@ -125,12 +126,12 @@
             font-family: $inconsolataFont;
             text-align: center;
             margin: 20px 0 20px;
-            color: $textColor;
+            color: $blackColor;
             font-size: 24px;
         }
 
         &--heart {
-            color: $coralColor;
+            color: $blackColor;
         }
 
         &--remove {
@@ -158,9 +159,8 @@
 
         &--list {
             font-family: $inconsolataFont;
-            border-radius: 15px;
             padding: 10px;
-
+            
             @include tablet {
                 display: flex;
                 flex-wrap: wrap;
@@ -168,7 +168,7 @@
                 justify-content: center;
             }
         }
-
+        
         &--item {
             list-style-type: none;
             width: 150px;
@@ -182,6 +182,7 @@
             width: 180px;
             align-items: center;
             padding: 5px;
+            border-right: 3px solid $coralColor;
         }
 
          &--delete {

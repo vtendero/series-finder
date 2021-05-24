@@ -7,6 +7,7 @@ const searchHiddenElement = document.querySelector('.js-results__search');
 const formElement = document.querySelector('.js-form');
 const favResults = document.querySelector('.js-favResults');
 const favRemove = document.querySelector('.js-favRemoveButton');
+const reloadResults = document.querySelector('.js-reload');
 
 let series = [];
 let favoritesSeries = [];
@@ -136,5 +137,11 @@ function handleRemoveFavorites(){
   renderFavorites();
 }
 favRemove.addEventListener('click', handleRemoveFavorites);
+
+
+function handleReload() {
+  location.reload();
+}
+reloadResults.addEventListener('click', handleReload);
 
 getFromLocalStorage();
